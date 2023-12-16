@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Overview
 
-First, run the development server:
+CodeShare is a sophisticated code snippet visualization tool designed to elevate the presentation of your code. This tool transforms raw code into aesthetically pleasing images with a customizable user interface. Share your code snippets with elegance, choosing from a variety of themes, customizable code highlight colors, and support for multiple programming languages.
+
+## Demo
+
+Visit the live demo [here](https://codeshare-xi.vercel.app/).
+
+
+
+## Usage
+
+Getting started with CodeShare is a breeze:
+
+1. Open the CodeShare project in your preferred code editor.
+2. Paste your code snippet into the integrated code editor.
+3. Customize the appearance of your code snippet using the provided options.
+4. Generate a visually stunning code image with the chosen settings.
+5. Effortlessly share your beautifully formatted code snippet with the world.
+
+## Customization Options
+
+Tailor your code snippet to perfection with the following customization options:
+
+- **Themes:** Choose from a selection of professionally crafted themes to enhance the visual appeal of your code.
+- **Highlight Color:** Personalize the code highlighting color to align with your style preferences.
+- **Language Support:** Select the programming language for accurate and context-aware syntax highlighting.
+
+## Screenshots
+
+Visualize the power of CodeShare with the following examples:
+
+![image](https://github.com/adityakumar48/codeshare/assets/61955750/dbf50b3c-c653-4dbc-9860-dafbf3568968)
+
+## Installation
+
+To integrate CodeShare into your project, follow these simple steps:
+
+1. Clone the repository to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/adityakumar48/codeshare.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the CodeShare directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd codeshare
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install project dependencies:
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
