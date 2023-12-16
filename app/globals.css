@@ -8,8 +8,8 @@ body {
 }
 
 .code-title {
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   border: 2px solid rgba(249, 249, 249, 0.08);
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2) !important;
 }
@@ -26,9 +26,9 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  border-top: none;
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2) !important;
   border: 2px solid rgba(249, 249, 249, 0.08);
+  border-top: none;
   font-weight: 500;
   font-size: 17px !important;
   line-height: 1.5rem !important;

@@ -10,11 +10,11 @@ import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/mode-php";
-import "ace-builds/src-noconflict/mode-ruby";
+import "ace-builds/src-noconflict/mode-typescript";
+import "ace-builds/src-noconflict/mode-html";
 
 // Themes
 import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-ambiance";
@@ -23,9 +23,9 @@ import "ace-builds/src-noconflict/theme-clouds";
 import "ace-builds/src-noconflict/theme-cobalt";
 import "ace-builds/src-noconflict/theme-crimson_editor";
 import Image from "next/image";
+import { initialCode } from "@/utils/Utilites";
 
 interface Props {
-  onCodeChange: (code: string) => void;
   language: string;
   theme: string;
   icon: string;
@@ -34,7 +34,6 @@ interface Props {
 }
 
 const CodeEditor = ({
-  onCodeChange,
   language,
   theme,
   icon,
@@ -43,15 +42,26 @@ const CodeEditor = ({
 }: Props) => {
   const [width, setWidth] = useState(1000);
   const [height, setHeight] = useState<number | null>(500);
+  const [title, setTitle] = useState("Untitled-1");
+  const [code, setCode] = useState(initialCode);
+
+  const handleCodeChange = (value: string) => {
+    setCode(value);
+  };
+
+  const handleTitleChange = (value: string) => {
+    setTitle(value);
+  };
 
   const handleResize = (e: any, direction: any, ref: any, pos: any) => {
     const newHeight = ref.style.height;
-    setHeight(parseInt(newHeight));
+    setHeight(parseInt(newHeight, 10));
   };
 
   const updateSize = () => {
     setWidth(window.innerWidth);
   };
+
   useEffect(() => {
     window.addEventListener("resize", updateSize);
     updateSize();
@@ -69,8 +79,14 @@ const CodeEditor = ({
       }}
       onResize={handleResize}
       className="resizable-container relative"
+      style={{ background: background }}
     >
-      <div className="code-block">
+      <div
+        className="code-block"
+        style={{
+          padding: currentPadding,
+        }}
+      >
         <div className="code-title h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80">
           <div className="dots flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-[#ff5656]"></div>
@@ -80,17 +96,21 @@ const CodeEditor = ({
           <div className="input-control w-full">
             <input
               type="text"
+              value={title}
+              onChange={(e) => handleTitleChange(e.target.value)}
               className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"
             />
           </div>
 
           <div className="icon flex justify-center items-center p-1 bg-black bg-opacity-30 rounded-sm">
-            <img src={icon} alt="icon" />
+            <img src={icon} alt="icon" className="w-[33px]" />
           </div>
         </div>
         <AceEditor
-          value=" function add(a, b) { return a + b; }"
+          value={code}
           name="code-edior"
+          onChange={handleCodeChange}
+          height={`calc(${height}px - ${currentPadding} - ${currentPadding} - 52px)`}
           fontSize={16}
           showGutter={false}
           theme={theme}
